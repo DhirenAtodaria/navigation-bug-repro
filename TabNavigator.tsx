@@ -47,42 +47,7 @@ export const tabOptions = [
 const TabNavigator: React.FunctionComponent = () => {
     return <Tab.Navigator
         initialRouteName={"TabA"}
-        initialLayout={{ width: screenWidth }}
         tabBarPosition="bottom"
-        screenOptions={(props) => {
-            const details = tabOptions.find((tabOption) => tabOption.route === props.route.name);
-
-            return {
-                swipeEnabled: false,
-                tabBarAllowFontScaling: false,
-                tabBarIconStyle: {
-                    marginTop: 8,
-                    marginBottom: 0,
-                },
-                tabBarLabel: details?.label,
-                tabBarLabelStyle: {
-                    textTransform: 'none',
-                    width: '100%',
-                    maxHeight: 20,
-                    alignSelf: 'center',
-                },
-                tabBarItemStyle: {
-                    paddingTop: 0,
-                },
-                tabBarStyle: {
-                    height: 50,
-                    width: screenWidth,
-                    alignContent: 'center',
-                    shadowOffset: {
-                        width: 0,
-                        height: 6,
-                    },
-                    shadowOpacity: 0.14,
-                    shadowRadius: 12,
-                    elevation: 4,
-                },
-            };
-        }}
     >
         {tabOptions.map((tabOption) => (
             <Tab.Screen
